@@ -29,7 +29,7 @@ pipeline {
     stage('SCA-checkov'){
       steps {
         script {
-        docker run --tty --volume $(tf_folder):/tf bridgecrew/checkov --directory /tf --compact
+        docker run --tty --volume $(pwd):/tf bridgecrew/checkov --directory /tf --compact
         
         }
       }
