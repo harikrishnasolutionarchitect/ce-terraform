@@ -16,7 +16,7 @@ pipeline {
     }
     stage('tfsec') {
       agent { 
-        docker { image 'tfsec/tfsec-ci:v0.57.1' 
+        any { image 'tfsec/tfsec-ci:v0.57.1' 
                   reuseNode true
                }
       }
