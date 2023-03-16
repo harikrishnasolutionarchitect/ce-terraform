@@ -29,6 +29,7 @@ pipeline {
     stage('terraform') {
       steps {
         sh "echo \$(pwd)"
+        sh "tfsec -f junit > tfsec_test.xml"
         sh './terraformw apply -auto-approve -no-color'
       }
     }
