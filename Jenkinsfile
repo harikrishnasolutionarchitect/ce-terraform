@@ -26,6 +26,16 @@ pipeline {
         '''
       }
     }
+    stage('SCA-checkov'){
+      steps {
+        script {
+        docker run --tty --volume $(tf_folder):/tf bridgecrew/checkov --directory /tf --compact
+        
+        }
+      }
+    
+    }
+    
     stage('terraform') {
       steps {
         sh "echo \$(pwd)"
