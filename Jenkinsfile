@@ -14,6 +14,15 @@ pipeline {
         checkout scm
       }
     }
+    
+    stage('approval') {
+      options {
+        timeout(time: 1, unit: 'HOURS') 
+      }
+      steps {
+        input 'approve the plan to proceed and apply'
+      }
+    }
     stage('tfsec') {
       agent { 
         any { image 'tfsec/tfsec-ci:v0.57.1' 
