@@ -28,6 +28,7 @@ pipeline {
     }
     stage('terraform') {
       steps {
+        sh "echo \$(pwd)"
         sh './terraformw apply -auto-approve -no-color'
       }
     }
