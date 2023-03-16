@@ -28,12 +28,10 @@ pipeline {
     }
     stage('SCA-checkov'){
       steps {
-        script {
+        sh '''
         docker run --tty --volume $(pwd):/tf bridgecrew/checkov --directory /tf --compact
-        
-        }
-      }
-    
+        '''
+      }    
     }
     
     stage('terraform') {
