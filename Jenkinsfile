@@ -15,11 +15,10 @@ pipeline {
       }
     }
     stage('tfsec') {
-      agent {  lable 'docker'
-        docker {             
-          image 'tfsec/tfsec-ci:v0.57.1' 
-          reuseNode true
-        }
+      agent { 
+        docker { image 'tfsec/tfsec-ci:v0.57.1' 
+                  reuseNode true
+               }
       }
       steps {
         sh '''
